@@ -1,0 +1,40 @@
+---
+layout: layouts/base.njk
+title: "Réserver une démo"
+description: "Découvrez où vous en êtes aujourd'hui dans les réponses générées par l'IA, sans engagement."
+lang: fr
+---
+<section class="final-cta">
+  <div class="container">
+    <span class="eyebrow">Contact</span>
+    <h1>Prêt à être découvert par l'IA ?</h1>
+    <p>Découvrez où vous en êtes aujourd'hui, sans engagement.</p>
+    <form class="demo-form" action="https://formspree.io/f/mqpkrejo" method="POST">
+      <input type="hidden" name="_subject" value="Nouvelle demande de démo : Alyra (FR)">
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+      <div class="form-grid">
+        <div class="field">
+          <label for="f-name">Nom</label>
+          <input type="text" id="f-name" name="name" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="f-org">Organisation</label>
+          <input type="text" id="f-org" name="organization" autocomplete="organization" required>
+        </div>
+        <div class="field">
+          <label for="f-email">Email</label>
+          <input type="email" id="f-email" name="email" autocomplete="email" required>
+        </div>
+        <div class="field">
+          <label for="f-phone">Téléphone</label>
+          <input type="tel" id="f-phone" name="phone" autocomplete="tel" pattern="^\+[1-9]\d{6,14}$" required>
+        </div>
+        <div class="field field-full">
+          <label for="f-position">Poste</label>
+          <input type="text" id="f-position" name="position" autocomplete="organization-title" required>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Réserver une démo →</button>
+    </form>
+  </div>
+</section>
