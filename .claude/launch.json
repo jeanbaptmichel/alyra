@@ -2,10 +2,10 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "alyra-static",
-      "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "8791", "--directory", "public"],
-      "port": 8791
+      "name": "alyra",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["start"],
+      "port": 8080
     }
   ]
 }
