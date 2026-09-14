@@ -1,7 +1,9 @@
 module.exports = function (eleventyConfig) {
-  // brand/ is a design-reference folder (BRAND-GUIDELINES.md, tokens.css, icons) —
-  // passthrough-copy it as-is, don't let Eleventy render BRAND-GUIDELINES.md as a page.
+  // brand/ is a design-reference folder (BRAND-GUIDELINES.md, tokens.css, icons,
+  // hero-plate.html markup sample) — passthrough-copy it as-is, don't let Eleventy
+  // render its .md/.html reference files as pages.
   eleventyConfig.ignores.add("src/brand/**/*.md");
+  eleventyConfig.ignores.add("src/brand/**/*.html");
 
   // Static passthroughs
   eleventyConfig.addPassthroughCopy("src/assets");

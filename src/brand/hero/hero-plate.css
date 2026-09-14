@@ -1,0 +1,126 @@
+/* Alyra — hero ground "Plate" (option 1a)
+   Requires brand/tokens.css for the text colours used alongside it.
+   No images, no JS. Square corners, bottom hem fades into the page. */
+
+.alyra-plate {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(176deg, #0B2226 0%, #14363C 38%, #1B454B 64%, #2A5A5F 100%);
+}
+
+/* layer 1 — the ruling. 1px @ 9px, faded in from 34% so depth reads as recession */
+.alyra-plate::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    180deg,
+    rgba(239, 234, 224, 0.10) 0px,
+    rgba(239, 234, 224, 0.10) 1px,
+    transparent 1px,
+    transparent 9px
+  );
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.5) 34%, #000 100%);
+          mask-image: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.5) 34%, #000 100%);
+  pointer-events: none;
+}
+
+/* layer 2 — grain. Kept as its own element so it can sit above the ruling in overlay */
+.alyra-plate::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.30;
+  mix-blend-mode: overlay;
+  background-image: url("grain.svg");
+  background-size: 180px 180px;
+  pointer-events: none;
+}
+
+/* layer 3 — glow + hem, as a real element so ::before/::after stay free */
+.alyra-plate__light {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(120% 70% at 78% 108%,
+    rgba(111,168,174,0.45) 0%,
+    rgba(111,168,174,0.12) 38%,
+    transparent 66%);
+  pointer-events: none;
+}
+.alyra-plate__hem {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 22%;
+  background: linear-gradient(180deg, transparent 0%, #EFEAE0 100%);
+  pointer-events: none;
+}
+
+/* content sits above every layer */
+.alyra-plate__inner {
+  position: relative;
+  z-index: 1;
+  padding: clamp(64px, 9vw, 120px) clamp(28px, 6vw, 88px) clamp(96px, 12vw, 148px);
+  max-width: 720px;
+}
+
+/* --- tile variant: shorter field, ruling from 10%, no glow, no hem --- */
+.alyra-plate--tile {
+  background: linear-gradient(168deg, #0B2226 0%, #14363C 55%, #24565B 100%);
+  min-height: 176px;
+}
+.alyra-plate--tile::before {
+  -webkit-mask-image: linear-gradient(180deg, transparent 10%, #000 100%);
+          mask-image: linear-gradient(180deg, transparent 10%, #000 100%);
+}
+.alyra-plate--tile .alyra-plate__inner {
+  padding: 24px;
+  max-width: none;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* --- type on the ground --- */
+.alyra-plate__eyebrow {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #6FA8AE;
+}
+.alyra-plate h1, .alyra-plate h2, .alyra-plate h3 {
+  font-family: "Newsreader", Georgia, serif;
+  font-weight: 500;            /* 500 on dark, 400 on paper — optical compensation */
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+  color: #F2EFE7;
+}
+.alyra-plate p { color: #D3CFC4; }
+.alyra-plate a { color: #6FA8AE; }
+
+/* buttons invert on the ground: petrol is invisible here */
+.alyra-plate .btn-primary {
+  background: #EFEAE0;
+  color: #1C1B16;
+  padding: 14px 26px;
+  font: 15px/1.2 "Inter", system-ui, sans-serif;
+  border: 0;
+  border-radius: 0;
+}
+.alyra-plate .btn-primary:hover { background: #FFFDF7; }
+.alyra-plate .btn-secondary {
+  background: transparent;
+  color: #EFEAE0;
+  border: 1px solid rgba(239,234,224,0.55);
+  padding: 13px 25px;
+  font: 15px/1.2 "Inter", system-ui, sans-serif;
+  border-radius: 0;
+}
+.alyra-plate .btn-secondary:hover { border-color: #EFEAE0; background: rgba(239,234,224,0.06); }
+
+@media (prefers-reduced-transparency: reduce) {
+  .alyra-plate::after { display: none; }
+}
