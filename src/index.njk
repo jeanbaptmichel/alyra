@@ -305,8 +305,55 @@ nav{
 .section-head p{margin-top:18px;font-size:17px;line-height:1.65;color:var(--ink-70);}
 .section.on-line{border-top:1px solid var(--hairline);}
 
-/* ---------- HOW IT WORKS (Plate tile row) ---------- */
-.how-tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;}
+/* ---------- HOW IT WORKS (scrollytelling) ---------- */
+.how-scrollarea{position:relative;height:340vh;margin-top:8px;}
+.how-pin{position:sticky;top:0;height:100vh;display:flex;align-items:center;padding:20px 0;}
+@media (min-width:901px){
+  .how-pin{align-items:flex-start;padding-top:64px;}
+}
+.how-grid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:64px;width:100%;}
+@media (max-width:900px){
+  .how-scrollarea{height:auto;margin-top:0;}
+  .how-pin{position:static;height:auto;display:block;padding:0;}
+  .how-grid{grid-template-columns:1fr;gap:36px;}
+}
+.step-list{align-self:start;}
+.step-item{
+  display:flex;gap:20px;padding:22px 0;border-top:1px solid var(--hairline);cursor:pointer;
+}
+.step-item:last-child{border-bottom:1px solid var(--hairline);}
+.step-num{
+  font-family:var(--font-mono);font-size:13px;letter-spacing:0.04em;color:var(--ink-45);min-width:24px;padding-top:2px;transition:color .15s ease-out;
+}
+.step-body h3{font-family:var(--font-serif);font-weight:500;font-size:20px;color:var(--ink-45);transition:color .15s ease-out;margin-bottom:6px;}
+.step-body p{font-family:var(--font-sans);font-size:15px;color:var(--ink-45);max-height:0;overflow:hidden;transition:max-height .35s ease, opacity .15s ease-out, color .15s ease-out;opacity:0;}
+.step-item.active .step-num{color:var(--petrol);}
+.step-item.active .step-body h3{color:var(--ink);}
+.step-item.active .step-body p{max-height:100px;opacity:1;color:var(--ink-70);margin-top:2px;}
+.step-mobile-panel{display:none;}
+@media (max-width:900px){
+  .step-body p{max-height:none;opacity:1;color:var(--ink-70);margin-top:2px;}
+  .step-num{color:var(--petrol);}
+  .step-body h3{color:var(--ink);}
+  .step-mobile-panel{
+    display:block;margin-top:16px;background:var(--card);border:1px solid var(--hairline);
+    border-radius:var(--radius);padding:22px 20px;
+  }
+}
+
+.step-visual{
+  background:var(--card);border:1px solid var(--hairline);border-radius:var(--radius);
+  padding:32px;min-height:380px;position:relative;overflow:hidden;
+}
+@media (max-width:900px){.step-visual{display:none;}}
+.step-panel{display:none;}
+.step-panel.active{display:block;animation:mockIn .15s ease-out;}
+.panel-row{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--hairline);font-size:14.5px;}
+.panel-row:last-child{border-bottom:none;}
+.panel-row .muted{color:var(--ink-45);}
+@keyframes mockIn{from{opacity:0;}to{opacity:1;}}
+
+/* ---------- ALYRA PLATE (dark ground component: tile / photo-background card) ---------- */
 .alyra-plate{position:relative;overflow:hidden;}
 .alyra-plate::before{
   content:"";position:absolute;inset:0;
@@ -339,6 +386,23 @@ nav{
 .alyra-plate h3{
   font-family:var(--font-serif);font-weight:500;line-height:1.25;letter-spacing:-0.015em;color:#F2EFE7;
   font-size:22px;margin-top:auto;
+}
+
+/* ---------- PROOF TILE (branded background behind the sources mockup) ---------- */
+.proof-tile{min-height:420px;display:flex;align-items:center;}
+.proof-tile .alyra-plate__inner{
+  width:100%;display:flex;flex-direction:column;align-items:center;text-align:center;
+  padding:clamp(48px,7vw,80px) clamp(24px,5vw,64px);
+}
+.proof-tile h2{color:#F2EFE7;font-size:clamp(26px,3.4vw,36px);max-width:560px;}
+.proof-mock{
+  margin-top:32px;width:100%;max-width:440px;text-align:left;
+  background:var(--card);border:1px solid var(--hairline);
+}
+.proof-mock .panel-row{padding:14px 20px;}
+.proof-annotation{
+  margin-top:22px;font-family:var(--font-serif);font-style:italic;font-weight:400;
+  font-size:16px;color:var(--petrol-light);
 }
 
 /* ---------- FEATURE ROWS (value props) ---------- */
@@ -597,31 +661,121 @@ footer{background:var(--footer-bg);padding:56px 0 40px;}
         <span class="eyebrow">How it works</span>
         <h2>Four steps, run on repeat.</h2>
       </div>
-      <div class="how-tiles">
-        <article class="alyra-plate alyra-plate--tile">
-          <div class="alyra-plate__inner">
-            <p class="alyra-plate__eyebrow">01 · Monitor</p>
-            <h3>We run commercially relevant prompts across leading AI assistants and track how your company and competitors appear.</h3>
+    </div>
+    <div class="how-scrollarea" id="howScrollArea">
+      <div class="how-pin">
+        <div class="container">
+          <div class="how-grid">
+            <div class="step-list" id="stepList">
+              <div class="step-item active" data-step="0">
+                <span class="step-num">01</span>
+                <div class="step-body">
+                  <h3>Monitor</h3>
+                  <p>We run commercially relevant prompts across leading AI assistants and track how your company and competitors appear.</p>
+                  <div class="step-mobile-panel">
+                    <span class="badge badge-accent">Monitor</span>
+                    <div class="panel-row"><span>Prompt tracked</span><span class="muted">"best CRM for SaaS teams"</span></div>
+                    <div class="panel-row"><span>Assistants covered</span><span class="muted">ChatGPT, Gemini, Perplexity</span></div>
+                    <div class="panel-row"><span>Your brand appears</span><span class="muted">Not yet</span></div>
+                    <div class="panel-row"><span>Competitor appears</span><span class="muted">3 times this week</span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="step-item" data-step="1">
+                <span class="step-num">02</span>
+                <div class="step-body">
+                  <h3>Map</h3>
+                  <p>We identify the websites, publications and sources repeatedly influencing AI answers in your category.</p>
+                  <div class="step-mobile-panel">
+                    <span class="badge badge-accent">Map</span>
+                    <div class="panel-row"><span>Source A</span><span class="muted">High influence</span></div>
+                    <div class="panel-row"><span>Source B</span><span class="muted">Frequently cited</span></div>
+                    <div class="panel-row"><span>Source C</span><span class="muted">Relevant</span></div>
+                    <div class="panel-row"><span>Source D</span><span class="muted">Competitor source</span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="step-item" data-step="2">
+                <span class="step-num">03</span>
+                <div class="step-body">
+                  <h3>Acquire</h3>
+                  <p>We contact relevant publishers and sources to secure legitimate, contextually relevant mentions and placements.</p>
+                  <div class="step-mobile-panel">
+                    <span class="badge badge-accent">Acquire</span>
+                    <div class="panel-row"><span>Outreach sent</span><span class="muted">Editor, Industry Publication</span></div>
+                    <div class="panel-row"><span>Reply received</span><span class="muted">Open to a mention</span></div>
+                    <div class="panel-row"><span>Terms</span><span class="muted">Negotiated</span></div>
+                    <div class="panel-row"><span>Status</span><span class="muted">Placement live</span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="step-item" data-step="3">
+                <span class="step-num">04</span>
+                <div class="step-body">
+                  <h3>Measure</h3>
+                  <p>We run the same prompts again and monitor changes in your AI visibility over time.</p>
+                  <div class="step-mobile-panel">
+                    <span class="badge badge-accent">Measure</span>
+                    <div class="panel-row"><span>Prompt re-run</span><span class="muted">This week</span></div>
+                    <div class="panel-row"><span>AI visibility</span><span class="muted">Trending up</span></div>
+                    <div class="panel-row"><span>New sources found</span><span class="muted">4</span></div>
+                    <div class="panel-row"><span>Next review</span><span class="muted">In 7 days</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="step-visual">
+              <div class="step-panel active" data-panel="0">
+                <span class="badge badge-accent">Monitor</span>
+                <div class="panel-row" style="margin-top:16px;"><span>Prompt tracked</span><span class="muted">"best CRM for SaaS teams"</span></div>
+                <div class="panel-row"><span>Assistants covered</span><span class="muted">ChatGPT, Gemini, Perplexity</span></div>
+                <div class="panel-row"><span>Your brand appears</span><span class="muted">Not yet</span></div>
+                <div class="panel-row"><span>Competitor appears</span><span class="muted">3 times this week</span></div>
+              </div>
+              <div class="step-panel" data-panel="1">
+                <span class="badge badge-accent">Map</span>
+                <div class="panel-row" style="margin-top:16px;"><span>Source A</span><span class="muted">High influence</span></div>
+                <div class="panel-row"><span>Source B</span><span class="muted">Frequently cited</span></div>
+                <div class="panel-row"><span>Source C</span><span class="muted">Relevant</span></div>
+                <div class="panel-row"><span>Source D</span><span class="muted">Competitor source</span></div>
+              </div>
+              <div class="step-panel" data-panel="2">
+                <span class="badge badge-accent">Acquire</span>
+                <div class="panel-row" style="margin-top:16px;"><span>Outreach sent</span><span class="muted">Editor, Industry Publication</span></div>
+                <div class="panel-row"><span>Reply received</span><span class="muted">Open to a mention</span></div>
+                <div class="panel-row"><span>Terms</span><span class="muted">Negotiated</span></div>
+                <div class="panel-row"><span>Status</span><span class="muted">Placement live</span></div>
+              </div>
+              <div class="step-panel" data-panel="3">
+                <span class="badge badge-accent">Measure</span>
+                <div class="panel-row" style="margin-top:16px;"><span>Prompt re-run</span><span class="muted">This week</span></div>
+                <div class="panel-row"><span>AI visibility</span><span class="muted">Trending up</span></div>
+                <div class="panel-row"><span>New sources found</span><span class="muted">4</span></div>
+                <div class="panel-row"><span>Next review</span><span class="muted">In 7 days</span></div>
+              </div>
+            </div>
           </div>
-        </article>
-        <article class="alyra-plate alyra-plate--tile">
-          <div class="alyra-plate__inner">
-            <p class="alyra-plate__eyebrow">02 · Map</p>
-            <h3>We identify the websites, publications and sources repeatedly influencing AI answers in your category.</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF TILE: BRANDED BACKGROUND BEHIND THE SOURCES MOCKUP -->
+  <section class="section on-line">
+    <div class="container">
+      <div class="alyra-plate alyra-plate--tile proof-tile">
+        <div class="alyra-plate__inner">
+          <p class="alyra-plate__eyebrow">The payoff</p>
+          <h2>Your brand, cited in the answer.</h2>
+          <div class="proof-mock">
+            <div class="panel-row"><span>Prompt tracked</span><span class="muted">"best CRM for SaaS teams"</span></div>
+            <div class="panel-row"><span>Toolstack Review</span><span class="muted">Frequently cited</span></div>
+            <div class="panel-row"><span>SaaS Weekly</span><span class="muted">High influence</span></div>
+            <div class="panel-row"><span>Your brand</span><span class="badge badge-accent">Cited</span></div>
+            <div class="panel-row"><span>Comparison Hub</span><span class="muted">Competitor source</span></div>
           </div>
-        </article>
-        <article class="alyra-plate alyra-plate--tile">
-          <div class="alyra-plate__inner">
-            <p class="alyra-plate__eyebrow">03 · Acquire</p>
-            <h3>We contact relevant publishers and sources to secure legitimate, contextually relevant mentions and placements.</h3>
-          </div>
-        </article>
-        <article class="alyra-plate alyra-plate--tile">
-          <div class="alyra-plate__inner">
-            <p class="alyra-plate__eyebrow">04 · Measure</p>
-            <h3>We run the same prompts again and monitor changes in your AI visibility over time.</h3>
-          </div>
-        </article>
+          <p class="proof-annotation">Same prompt as day one. Now it names you.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -805,6 +959,54 @@ const revealObs = new IntersectionObserver((entries)=>{
 },{threshold:0.15});
 revealEls.forEach(el=>revealObs.observe(el));
 
+// ---------- How it works: pinned scrollytelling ----------
+const howScrollArea = document.getElementById('howScrollArea');
+const stepItems = Array.from(document.querySelectorAll('.step-item'));
+const stepPanels = Array.from(document.querySelectorAll('.step-panel'));
+const numSteps = stepItems.length;
+
+function isDesktopScrolly(){ return window.innerWidth >= 900; }
+
+function setStep(i){
+  stepItems.forEach(s=> s.classList.toggle('active', +s.dataset.step === i));
+  stepPanels.forEach(p=> p.classList.toggle('active', +p.dataset.panel === i));
+}
+
+function updateHowFromScroll(){
+  if(!isDesktopScrolly()) return;
+  const rect = howScrollArea.getBoundingClientRect();
+  const scrollAreaHeight = howScrollArea.offsetHeight;
+  const viewportH = window.innerHeight;
+  const maxScroll = scrollAreaHeight - viewportH;
+  const scrolled = -rect.top;
+  let progress = maxScroll > 0 ? scrolled / maxScroll : 0;
+  progress = Math.min(1, Math.max(0, progress));
+  let idx = Math.floor(progress * numSteps);
+  idx = Math.min(numSteps - 1, Math.max(0, idx));
+  setStep(idx);
+}
+window.addEventListener('scroll', updateHowFromScroll, {passive:true});
+window.addEventListener('resize', updateHowFromScroll);
+updateHowFromScroll();
+
+stepItems.forEach(item=>{
+  item.addEventListener('click', ()=>{
+    const idx = +item.dataset.step;
+    if(isDesktopScrolly()){
+      const rect = howScrollArea.getBoundingClientRect();
+      const scrollAreaTop = window.scrollY + rect.top;
+      const scrollAreaHeight = howScrollArea.offsetHeight;
+      const viewportH = window.innerHeight;
+      const maxScroll = scrollAreaHeight - viewportH;
+      const targetProgress = (idx + 0.5) / numSteps;
+      const targetY = scrollAreaTop + targetProgress * Math.max(0, maxScroll);
+      window.scrollTo({top: targetY, behavior:'smooth'});
+    } else {
+      setStep(idx);
+    }
+  });
+});
+
 // ---------- Map lines draw-in ----------
 const mapWrap = document.getElementById('mapWrap');
 if(mapWrap){
@@ -835,8 +1037,6 @@ if(pipeline){
   },{threshold:0.5});
   pipeObs.observe(pipeline);
 }
-
-function isDesktopScrolly(){ return window.innerWidth >= 900; }
 
 // ---------- Outbound section: pinned card swap ----------
 const outboundScrollArea = document.getElementById('outboundScrollArea');
