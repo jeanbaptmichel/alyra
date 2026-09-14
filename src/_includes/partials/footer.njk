@@ -1,0 +1,26 @@
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="logo"><img src="/assets/brand/lockup-dark.svg" alt="Alyra"></a>
+        <p>{% if lang == 'fr' %}Visibilité IA pour les entreprises modernes.{% else %}AI visibility for modern businesses.{% endif %}</p>
+        <p style="margin-top:8px;">get-alyra.com</p>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>{% if lang == 'fr' %}Explorer{% else %}Explore{% endif %}</h4>
+          <a href="/#how">{% if lang == 'fr' %}Comment ça marche{% else %}How it works{% endif %}</a>
+          <a href="{% if lang == 'fr' %}/fr/blog/{% else %}/blog/{% endif %}">Blog</a>
+          <a href="/#audit">{% if lang == 'fr' %}Réserver une démo{% else %}Book a demo{% endif %}</a>
+        </div>
+        <div class="footer-col">
+          <h4>{% if lang == 'fr' %}Légal{% else %}Legal{% endif %}</h4>
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 Alyra. {% if lang == 'fr' %}Tous droits réservés.{% else %}All rights reserved.{% endif %}</div>
+  </div>
+</footer>

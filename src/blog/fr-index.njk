@@ -1,0 +1,40 @@
+---
+layout: layouts/base.njk
+title: "Blog"
+description: "Analyses GEO et visibilité IA par Alyra : éducation, playbooks sectoriels, exécution technique, outils et données originales."
+lang: fr
+permalink: /fr/blog/
+hreflang:
+  - lang: en
+    url: "/blog/"
+eleventyExcludeFromCollections: true
+---
+<div class="blog-index-head">
+  <span class="eyebrow">Blog</span>
+  <h1>Analyses GEO et visibilité IA</h1>
+  <p>Éducation, playbooks sectoriels, exécution technique, outils et données originales — tout ce qu'on publie sur le fait d'être cité dans les réponses IA.</p>
+  {% include "partials/translation-note.njk" %}
+</div>
+
+<div class="blog-index-body">
+  {% for p in pillars %}
+    {% set items = collections['pillar-' + p.key] | byLang('fr') %}
+    {% if items.length %}
+    <section class="pillar-group">
+      <h2 class="pillar-heading">{{ p.fr }}</h2>
+      <div class="blog-list">
+        {% for item in items %}
+        <article class="blog-card">
+          <a href="{{ item.url }}">
+            <span class="eyebrow">{{ item.data.category }}</span>
+            <h3>{{ item.data.title }}</h3>
+            <p>{{ item.data.description }}</p>
+            <p class="blog-card-meta">{{ item.data.date | readableDate }}</p>
+          </a>
+        </article>
+        {% endfor %}
+      </div>
+    </section>
+    {% endif %}
+  {% endfor %}
+</div>

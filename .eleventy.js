@@ -40,7 +40,10 @@ module.exports = function (eleventyConfig) {
   ["category-education", "vertical-playbooks", "technical-execution", "tools-measurement", "original-data"].forEach(
     (pillar) => {
       eleventyConfig.addCollection(`pillar-${pillar}`, (api) =>
-        api.getFilteredByGlob("src/blog/**/*.md").filter((item) => item.data.pillar === pillar)
+        api
+          .getFilteredByGlob("src/blog/**/*.md")
+          .filter((item) => item.data.pillar === pillar)
+          .sort((a, b) => b.date - a.date)
       );
     }
   );
@@ -63,6 +66,10 @@ module.exports = function (eleventyConfig) {
     const d = new Date(dateObj);
     return d.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
   });
+
+  // Filters a collection down to one language — used to split the mixed-language
+  // pillar-* collections by lang on the /blog/ and /fr/blog/ index pages.
+  eleventyConfig.addFilter("byLang", (arr, lang) => (arr || []).filter((item) => item.data.lang === lang));
 
   return {
     dir: {

@@ -1,0 +1,7 @@
+{% if hreflang and hreflang.length %}
+<p class="translation-note">
+  {% for alt in hreflang %}
+    <a href="{{ alt.url }}">{% if alt.lang == 'fr' %}Lire en français{% else %}Read in English{% endif %}</a>
+  {% endfor %}
+</p>
+{% endif %}

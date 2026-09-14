@@ -5,6 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ title }} — Alyra</title>
   <meta name="description" content="{{ description }}">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=Inter:wght@300..600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/brand/tokens.css">
+  <link rel="stylesheet" href="/brand/site.css">
 
   <!-- hreflang alternates — set via a `hreflang` array in the article's own frontmatter, e.g. [{lang: "fr", url: "/fr/blog/geo-basics/quest-ce-que-le-geo/"}], when a direct translation counterpart exists. Omit for FR-native / EN-only content. -->
   {% for alt in hreflang %}
@@ -30,8 +37,10 @@
   </script>
 </head>
 <body>
-  <main>
+  {% include "partials/header.njk" %}
+  <main class="blog-main">
     {{ content | safe }}
   </main>
+  {% include "partials/footer.njk" %}
 </body>
 </html>

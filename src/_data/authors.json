@@ -1,7 +1,7 @@
 {
   "alyra-team": {
-    "name": "L'équipe Alyra",
-    "role": "Agence GEO & AI Visibility",
+    "name": { "en": "The Alyra Team", "fr": "L'équipe Alyra" },
+    "role": { "en": "GEO & AI Visibility Agency", "fr": "Agence GEO & AI Visibility" },
     "bio": "Boutique agency spécialisée en visibilité IA et acquisition de backlinks pour les moteurs de réponse (ChatGPT, Perplexity, Gemini, Claude)."
   }
 }

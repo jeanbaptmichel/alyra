@@ -1,0 +1,7 @@
+[
+  { "key": "category-education", "en": "GEO Category Education", "fr": "Éducation GEO" },
+  { "key": "vertical-playbooks", "en": "Vertical Playbooks", "fr": "Playbooks sectoriels" },
+  { "key": "technical-execution", "en": "Technical GEO Execution", "fr": "Exécution technique GEO" },
+  { "key": "tools-measurement", "en": "Tools, Measurement & Buying Guides", "fr": "Outils, mesure et guides d'achat" },
+  { "key": "original-data", "en": "Original Data & Benchmarks", "fr": "Données originales et benchmarks" }
+]

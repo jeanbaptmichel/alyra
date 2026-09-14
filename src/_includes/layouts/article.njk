@@ -5,7 +5,7 @@ layout: layouts/base.njk
   <header>
     <p class="eyebrow">{{ pillar }} · {{ vertical }} · {{ category }}</p>
     <h1>{{ title }}</h1>
-    <p class="byline">{{ authors[author].name }} · {{ date | readableDate }}</p>
+    <p class="byline">{{ authors[author].name[lang] }} · {{ date | readableDate }}</p>
   </header>
 
   {# TL;DR block — required per content format rules: extractable direct-answer
@@ -19,18 +19,10 @@ layout: layouts/base.njk
 
   {{ content | safe }}
 
-  {% if hreflang and hreflang.length %}
-  <p class="translation-note">
-    {% for alt in hreflang %}
-      <a href="{{ alt.url }}">{% if alt.lang == 'fr' %}Lire en français{% else %}Read in English{% endif %}</a>
-    {% endfor %}
-  </p>
-  {% endif %}
+  {% include "partials/translation-note.njk" %}
 
   <footer>
-    <p>
-      {% if lang == 'fr' %}<a href="/fr/contact/">Parler à Alyra</a>
-      {% else %}<a href="/contact/">Talk to Alyra</a>{% endif %}
-    </p>
+    {% if lang == 'fr' %}<a href="/fr/contact/" class="btn btn-primary">Parler à Alyra →</a>
+    {% else %}<a href="/contact/" class="btn btn-primary">Talk to Alyra →</a>{% endif %}
   </footer>
 </article>
