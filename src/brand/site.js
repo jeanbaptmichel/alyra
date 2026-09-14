@@ -22,3 +22,27 @@ document.querySelectorAll('.pillar-tabs').forEach(function (tabs) {
     if (empty) empty.classList.toggle('visible', visibleCount === 0);
   });
 });
+
+(function () {
+  var toggle = document.getElementById('mobileMenuToggle');
+  var menu = document.getElementById('mobileMenu');
+  var close = document.getElementById('mobileMenuClose');
+  if (!toggle || !menu) return;
+
+  function openMenu() {
+    menu.classList.add('open');
+    toggle.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenu() {
+    menu.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  toggle.addEventListener('click', openMenu);
+  if (close) close.addEventListener('click', closeMenu);
+  menu.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', closeMenu);
+  });
+})();

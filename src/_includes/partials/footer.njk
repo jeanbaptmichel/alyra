@@ -2,14 +2,14 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="/" class="logo"><img src="/assets/brand/lockup-dark.svg" alt="Alyra"></a>
+        <a href="{% if lang == 'fr' %}/fr/{% else %}/{% endif %}" class="logo"><img src="/assets/brand/lockup-dark.svg" alt="Alyra"></a>
         <p>{% if lang == 'fr' %}Visibilité IA pour les entreprises modernes.{% else %}AI visibility for modern businesses.{% endif %}</p>
         <p style="margin-top:8px;">get-alyra.com</p>
       </div>
       <div class="footer-cols">
         <div class="footer-col">
           <h4>{% if lang == 'fr' %}Explorer{% else %}Explore{% endif %}</h4>
-          <a href="/#how">{% if lang == 'fr' %}Comment ça marche{% else %}How it works{% endif %}</a>
+          <a href="{% if lang == 'fr' %}/fr/#how{% else %}/#how{% endif %}">{% if lang == 'fr' %}Comment ça marche{% else %}How it works{% endif %}</a>
           <a href="{% if lang == 'fr' %}/fr/blog/{% else %}/blog/{% endif %}">Blog</a>
           <a href="{% if lang == 'fr' %}/fr/contact/{% else %}/contact/{% endif %}">{% if lang == 'fr' %}Réserver une démo{% else %}Book a demo{% endif %}</a>
         </div>
