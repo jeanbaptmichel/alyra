@@ -77,7 +77,9 @@ h3{letter-spacing:0;}
 .badge-accent{background:var(--petrol-wash);color:var(--petrol);}
 
 /* ---------- NAV ---------- */
-header{
+/* Scoped to body > header (the site nav partial) so this doesn't also match
+   article's own <header> (eyebrow/h1/byline) nested inside main > article. */
+body > header{
   position:sticky;top:0;z-index:100;
   background:var(--stone);
   border-bottom:1px solid var(--hairline);
