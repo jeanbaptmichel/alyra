@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Alyra — Get discovered when your customers ask AI</title>
+<title>Alyra — Your backlink partner, built for AI search</title>
 <meta name="description" content="Alyra helps companies become visible in AI-generated answers by identifying influential sources and building relevant third-party visibility.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -101,128 +101,59 @@ nav{
 }
 
 /* ---------- HERO ---------- */
-.hero{padding:96px 0 60px;position:relative;}
+.hero{padding:110px 0 90px;position:relative;text-align:center;}
 .hero::before{
-  content:'';position:absolute;inset:-40px 0 0 0;height:640px;z-index:-1;
+  content:'';position:absolute;inset:-40px 0 0 0;height:560px;z-index:-1;
   background:
-    radial-gradient(ellipse 900px 420px at 78% 0%, rgba(60,74,50,0.14), transparent 65%),
-    radial-gradient(ellipse 700px 380px at 15% 10%, rgba(28,27,22,0.07), transparent 60%);
+    radial-gradient(ellipse 900px 420px at 50% 0%, rgba(60,74,50,0.14), transparent 65%),
+    radial-gradient(ellipse 700px 380px at 25% 15%, rgba(28,27,22,0.06), transparent 60%);
   opacity:0.9;
 }
 .hero::after{
-  content:'';position:absolute;inset:-40px 0 0 0;height:640px;z-index:-1;pointer-events:none;
+  content:'';position:absolute;inset:-40px 0 0 0;height:560px;z-index:-1;pointer-events:none;
   opacity:0.5;mix-blend-mode:multiply;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.02 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
-.hero-grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:64px;align-items:center;}
-@media (max-width:980px){.hero-grid{grid-template-columns:1fr;gap:48px;}}
-.hero h1{font-size:clamp(38px,5.2vw,64px);}
-.inline-badge{
-  display:inline-block;border:1px solid var(--line);border-radius:12px;padding:2px 16px 6px;
-  background:var(--surface);font-style:italic;
-}
-.hero-heading-row{display:flex;align-items:flex-start;gap:22px;}
+.hero .container{display:flex;flex-direction:column;align-items:center;}
+.hero h1{font-size:clamp(38px,5.2vw,64px);max-width:820px;}
 .hero-logo-rotator{
-  position:relative;width:56px;height:56px;flex-shrink:0;margin-top:8px;
+  position:relative;display:inline-block;width:0.82em;height:0.82em;
+  vertical-align:-0.12em;margin:0 0.12em;
   border:1px solid var(--line);border-radius:50%;background:var(--surface);
   box-shadow:0 8px 20px -12px rgba(28,27,22,0.3);
 }
 .hero-logo-rotator img{
-  position:absolute;inset:0;margin:auto;width:26px;height:26px;object-fit:contain;
+  position:absolute;inset:0;margin:auto;width:48%;height:48%;object-fit:contain;
   opacity:0;animation:logoRotate 8s infinite;
 }
 .hero-logo-rotator img:nth-child(1){animation-delay:0s;}
 .hero-logo-rotator img:nth-child(2){animation-delay:2s;}
 .hero-logo-rotator img:nth-child(3){animation-delay:4s;}
 .hero-logo-rotator img:nth-child(4){animation-delay:6s;}
-@keyframes logoRotate{
-  0%{opacity:0;} 4%{opacity:1;} 21%{opacity:1;} 25%{opacity:0;} 100%{opacity:0;}
-}
+@keyframes logoRotate{0%{opacity:0;}4%{opacity:1;}21%{opacity:1;}25%{opacity:0;}100%{opacity:0;}}
 @media (prefers-reduced-motion: reduce){
   .hero-logo-rotator img{animation:none;opacity:1;}
   .hero-logo-rotator img:not(:first-child){display:none;}
 }
-@media (max-width:480px){.hero-heading-row{flex-direction:column;align-items:flex-start;}}
-.hero-sub{margin-top:24px;font-size:19px;color:var(--ink-soft);max-width:480px;line-height:1.55;}
-.hero-ctas{margin-top:36px;display:flex;align-items:center;gap:22px;flex-wrap:wrap;}
+.hero-sub{margin:24px auto 0;font-size:19px;color:var(--ink-soft);max-width:560px;line-height:1.55;}
+.hero-ctas{margin-top:36px;display:flex;align-items:center;justify-content:center;gap:22px;flex-wrap:wrap;}
 .link-underline{font-size:15px;color:var(--ink-soft);border-bottom:1px solid var(--line);padding-bottom:2px;transition:color .2s, border-color .2s;}
 .link-underline:hover{color:var(--ink);border-color:var(--ink);}
 
-/* AI answer mock */
-.ai-mock{
-  background:var(--surface);
-  border:1px solid var(--line);
-  border-radius:var(--radius-l);
-  padding:26px 26px 22px;
-  box-shadow:0 20px 60px -30px rgba(28,27,22,0.25);
-}
-.ai-mock-prompt{
-  font-size:14px;color:var(--ink-faint);
-  display:flex;align-items:center;gap:8px;margin-bottom:16px;
-}
-.ai-mock-q{
-  font-size:16.5px;font-weight:500;margin-bottom:18px;padding-bottom:18px;
-  border-bottom:1px solid var(--line-soft);
-}
-.ai-mock-answer{min-height:150px;}
-.ai-mock-answer ol{list-style:none;counter-reset:ans;}
-.ai-mock-answer li{
-  counter-increment:ans;
-  display:flex;gap:12px;align-items:baseline;
-  font-size:15.5px;padding:7px 0;
-  opacity:0;transform:translateY(6px);
-  animation:mockIn .5s ease forwards;
-}
-.ai-mock-answer li::before{
-  content:counter(ans);
-  font-family:'Newsreader',serif;font-style:italic;color:var(--accent-deep);
-  font-size:15px;min-width:16px;
-}
-@keyframes mockIn{to{opacity:1;transform:translateY(0);}}
-.mock-sources-label{
-  font-size:12.5px;color:var(--ink-faint);letter-spacing:0.02em;
-  margin:20px 0 10px;padding-top:18px;border-top:1px solid var(--line-soft);
-}
-.mock-sources{display:flex;flex-wrap:wrap;gap:8px;}
-.source-chip{
-  display:flex;align-items:center;gap:7px;
-  border:1px solid var(--line);background:var(--paper);
-  border-radius:20px;padding:6px 12px 6px 8px;font-size:13px;color:var(--ink-soft);
-  opacity:0;transform:translateY(4px);animation:mockIn .4s ease forwards;
-}
-.source-chip .dot{width:6px;height:6px;border-radius:50%;background:var(--ink-faint);}
-.source-chip.is-opportunity{border-color:var(--accent);background:var(--accent-soft);color:var(--accent-deep);}
-.source-chip.is-opportunity .dot{background:var(--accent);}
-.mock-callout{
-  margin-top:16px;display:flex;align-items:center;gap:10px;
-  font-size:13px;color:var(--accent-deep);
-  opacity:0;animation:mockIn .5s ease forwards;animation-delay:1.6s;
-}
-.mock-callout .pill{
-  background:var(--accent);color:var(--surface);padding:4px 10px;border-radius:20px;font-size:12px;font-weight:500;
-}
-
-/* ---------- ASSISTANT MARQUEE ---------- */
-.marquee-strip{padding:36px 0 40px;border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);overflow:hidden;}
-.marquee-label{text-align:center;font-family:'Newsreader',serif;font-style:italic;font-size:15.5px;color:var(--ink-faint);margin-bottom:22px;}
-.marquee-track{display:flex;width:max-content;animation:marqueeScroll 26s linear infinite;}
-.marquee-group{display:flex;align-items:center;flex-shrink:0;}
-.assistant-chip{display:flex;align-items:center;gap:10px;font-size:18px;font-weight:500;color:var(--ink);white-space:nowrap;padding:0 34px;border-right:1px solid var(--line-soft);}
-@keyframes marqueeScroll{from{transform:translateX(0);}to{transform:translateX(-33.3333%);}}
-@media (prefers-reduced-motion: reduce){.marquee-track{animation:none;}}
-
-/* ---------- WHY US ---------- */
-.whyus-wrap{max-width:640px;margin:0 auto;text-align:center;display:flex;flex-direction:column;align-items:center;}
-.whyus-avatar{width:76px;height:76px;border-radius:50%;object-fit:cover;margin-bottom:28px;border:1px solid var(--line);}
-.whyus-quote{font-family:'Newsreader',serif;font-style:italic;font-weight:400;font-size:clamp(21px,2.6vw,27px);line-height:1.5;color:var(--ink);}
-.whyus-name{margin-top:22px;font-size:14.5px;font-weight:600;}
-.whyus-name .muted{font-weight:400;color:var(--ink-faint);}
-
 /* ---------- BIG STATEMENT ---------- */
-.statement{padding:140px 0;}
-.statement-inner{max-width:760px;}
+.statement{padding:140px 0;position:relative;overflow:hidden;text-align:center;}
+.statement .container{position:relative;}
+.ping-ring{position:absolute;top:50%;left:50%;width:16px;height:16px;margin:-8px 0 0 -8px;border:1px solid var(--accent);border-radius:50%;opacity:0;animation:pingOut 4.2s ease-out infinite;pointer-events:none;z-index:0;}
+.ping-ring:nth-child(2){animation-delay:1.4s;}
+.ping-ring:nth-child(3){animation-delay:2.8s;}
+.ping-dot{position:absolute;top:50%;left:50%;width:10px;height:10px;margin:-5px 0 0 -5px;background:var(--accent);border-radius:50%;box-shadow:0 0 0 8px var(--accent-soft);pointer-events:none;z-index:0;}
+@keyframes pingOut{
+  0%{width:16px;height:16px;margin:-8px 0 0 -8px;opacity:0.55;}
+  100%{width:460px;height:460px;margin:-230px 0 0 -230px;opacity:0;}
+}
+.statement-inner{max-width:760px;margin:0 auto;position:relative;z-index:1;}
 .statement h2{font-size:clamp(32px,4.6vw,52px);}
-.statement p{margin-top:26px;font-size:19px;color:var(--ink-soft);max-width:600px;line-height:1.6;}
+.statement p{margin:26px auto 0;font-size:19px;color:var(--ink-soft);max-width:600px;line-height:1.6;}
 
 /* ---------- SECTION HEADER (shared) ---------- */
 .section{padding:120px 0;}
@@ -231,10 +162,16 @@ nav{
 .section-head p{margin-top:18px;font-size:17.5px;color:var(--ink-soft);}
 .section.on-line{border-top:1px solid var(--line-soft);}
 
-/* ---------- HOW IT WORKS ---------- */
-.how-grid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:64px;}
-@media (max-width:900px){.how-grid{grid-template-columns:1fr;gap:36px;}}
-.step-list{position:sticky;top:110px;align-self:start;}
+/* ---------- HOW IT WORKS (scrollytelling) ---------- */
+.how-scrollarea{position:relative;height:340vh;margin-top:8px;}
+.how-pin{position:sticky;top:0;height:100vh;display:flex;align-items:center;padding:20px 0;}
+.how-grid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:64px;width:100%;}
+@media (max-width:900px){
+  .how-scrollarea{height:auto;margin-top:0;}
+  .how-pin{position:static;height:auto;display:block;padding:0;}
+  .how-grid{grid-template-columns:1fr;gap:36px;}
+}
+.step-list{align-self:start;}
 .step-item{
   display:flex;gap:20px;padding:22px 0;border-top:1px solid var(--line-soft);cursor:pointer;
 }
@@ -246,6 +183,10 @@ nav{
 .step-body p{font-size:15px;color:var(--ink-faint);max-height:0;overflow:hidden;transition:max-height .35s ease, opacity .3s ease, color .3s;opacity:0;}
 .step-item.active .step-num,.step-item.active .step-body h3{color:var(--ink);}
 .step-item.active .step-body p{max-height:100px;opacity:1;color:var(--ink-soft);margin-top:2px;}
+@media (max-width:900px){
+  .step-body p{max-height:none;opacity:1;color:var(--ink-soft);margin-top:2px;}
+  .step-num,.step-body h3{color:var(--ink);}
+}
 
 .step-visual{
   background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-l);
@@ -253,25 +194,26 @@ nav{
 }
 .step-panel{display:none;}
 .step-panel.active{display:block;animation:mockIn .4s ease;}
+@media (max-width:900px){.step-panel{display:block !important;margin-bottom:18px;} .step-panel:last-child{margin-bottom:0;}}
 .panel-tag{font-size:12.5px;color:var(--accent-deep);background:var(--accent-soft);display:inline-block;padding:4px 10px;border-radius:20px;margin-bottom:16px;}
 .panel-row{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--line-soft);font-size:14.5px;}
 .panel-row:last-child{border-bottom:none;}
 .panel-row .muted{color:var(--ink-faint);}
+@keyframes mockIn{to{opacity:1;transform:translateY(0);}}
 
-/* ---------- DEMO: MONITOR ---------- */
-.demo-mock{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-l);padding:34px;}
-.demo-mock .ai-mock-answer li{opacity:1;transform:none;animation:none;}
-.tag{font-size:12px;padding:3px 9px;border-radius:20px;border:1px solid var(--line);color:var(--ink-soft);}
-.tag.brand{background:var(--accent-soft);border-color:var(--accent);color:var(--accent-deep);}
-.tag.competitor{background:#F2E4DF;border-color:#C98A73;color:var(--red);}
-.tag.gap{background:var(--paper);border-color:var(--line);color:var(--ink-faint);}
-.source-row{display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-bottom:1px solid var(--line-soft);font-size:14.5px;}
-.source-row:last-child{border:none;}
-.source-row .name{display:flex;align-items:center;gap:10px;}
-.source-row .favicon{width:22px;height:22px;border-radius:5px;background:var(--accent-soft-2);display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--accent-deep);font-weight:600;}
+/* ---------- FEATURE ROWS (value props) ---------- */
+.feature-row{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+.feature-row.reverse .feature-visual{order:-1;}
+@media (max-width:900px){
+  .feature-row{grid-template-columns:1fr;gap:36px;}
+  .feature-row.reverse .feature-visual{order:0;}
+}
+.feature-text h2{font-size:clamp(26px,3.4vw,38px);}
+.feature-text p{margin-top:18px;font-size:17px;color:var(--ink-soft);max-width:460px;}
+.feature-visual{width:100%;}
 
-/* ---------- DEMO: MAP ---------- */
-.map-wrap{position:relative;height:460px;display:flex;align-items:center;justify-content:center;}
+/* ---------- MAP VISUAL (feature row 1) ---------- */
+.map-wrap{position:relative;height:420px;display:flex;align-items:center;justify-content:center;}
 .map-center{
   width:150px;height:150px;border-radius:50%;background:var(--ink);color:var(--surface);
   display:flex;align-items:center;justify-content:center;text-align:center;font-size:14px;font-weight:500;
@@ -289,14 +231,13 @@ svg.map-lines path{stroke:var(--line);stroke-width:1.4;fill:none;stroke-dasharra
 svg.map-lines path.high{stroke:var(--accent);}
 .map-wrap.in-view svg.map-lines path{stroke-dashoffset:0;}
 @media (max-width:640px){
+  .map-wrap{height:380px;}
   .map-center{width:110px;height:110px;font-size:12px;}
   .map-node{padding:8px 10px;font-size:11.5px;min-width:110px;}
   .map-node .node-tag{font-size:10px;}
 }
 
-/* ---------- DEMO: ACQUIRE ---------- */
-.acquire-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;}
-@media (max-width:900px){.acquire-grid{grid-template-columns:1fr;}}
+/* ---------- OUTBOUND VISUAL (feature row 2) ---------- */
 .email-mock{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-l);padding:0;overflow:hidden;}
 .email-head{padding:18px 24px;border-bottom:1px solid var(--line-soft);font-size:13.5px;color:var(--ink-faint);}
 .email-head .field{display:flex;gap:10px;margin-bottom:6px;}
@@ -305,11 +246,11 @@ svg.map-lines path.high{stroke:var(--accent);}
 .email-body p{margin-bottom:14px;}
 .email-body .sign{color:var(--ink-faint);font-size:14px;}
 
-.pipeline{display:flex;flex-direction:column;justify-content:center;gap:0;padding-left:12px;}
-.pipe-step{display:flex;gap:16px;position:relative;padding-bottom:38px;}
-.pipe-step:last-child{padding-bottom:0;}
+.pipeline{display:flex;flex-direction:column;justify-content:center;gap:0;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-l);padding:24px 24px 4px;}
+.pipe-step{display:flex;gap:16px;position:relative;padding-bottom:32px;}
+.pipe-step:last-child{padding-bottom:8px;}
 .pipe-step::before{
-  content:'';position:absolute;left:9px;top:22px;bottom:-16px;width:1px;background:var(--line);
+  content:'';position:absolute;left:9px;top:22px;bottom:-10px;width:1px;background:var(--line);
 }
 .pipe-step:last-child::before{display:none;}
 .pipe-dot{width:19px;height:19px;border-radius:50%;border:1px solid var(--line);background:var(--surface);flex-shrink:0;z-index:1;transition:background .4s, border-color .4s;}
@@ -318,94 +259,27 @@ svg.map-lines path.high{stroke:var(--accent);}
 .pipe-text p{font-size:14px;color:var(--ink-faint);}
 .pipe-step.done .pipe-text h4{color:var(--accent-deep);}
 
-/* ---------- DEMO: APPROVAL ---------- */
-.approval-wrap{display:flex;justify-content:center;}
-.card-stack{position:relative;width:100%;max-width:440px;height:430px;}
-.opp-card{
-  position:absolute;inset:0;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-l);
-  padding:28px;transition:transform .4s ease, opacity .4s ease;display:flex;flex-direction:column;
-}
-.opp-card.away{transform:translateY(-14px) scale(0.97);opacity:0;pointer-events:none;}
-.opp-card.behind{transform:translateY(12px) scale(0.96);z-index:0;}
-.opp-card.front{z-index:2;}
-.opp-title{font-size:12.5px;color:var(--accent-deep);background:var(--accent-soft);display:inline-block;padding:4px 10px;border-radius:20px;margin-bottom:18px;}
-.opp-name{font-family:'Newsreader',serif;font-size:21px;margin-bottom:14px;}
-.opp-rows{margin-bottom:16px;}
-.opp-row{display:flex;justify-content:space-between;font-size:13.5px;padding:7px 0;border-bottom:1px solid var(--line-soft);}
-.opp-row .muted{color:var(--ink-faint);}
-.opp-status{font-size:13.5px;color:var(--ink-faint);margin-bottom:12px;}
-.opp-buttons{display:flex;gap:12px;margin-top:auto;}
-.opp-btn{flex:1;padding:11px;border-radius:var(--radius-s);text-align:center;font-size:14.5px;font-weight:500;cursor:pointer;border:1px solid var(--line);transition:.2s;}
-.opp-btn.approve{background:var(--ink);color:var(--surface);border-color:var(--ink);}
-.opp-btn.approve:hover{background:var(--accent-deep);}
-.opp-btn.pass:hover{border-color:var(--ink);}
-.opp-result{display:none;align-items:center;gap:10px;font-size:15px;font-weight:500;padding:12px 0;}
-.opp-result.approve{color:var(--accent-deep);}
-.opp-result.pass{color:var(--ink-faint);}
-
-/* ---------- NOT JUST BACKLINKS ---------- */
-.hierarchy-wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;}
-@media (max-width:860px){.hierarchy-wrap{grid-template-columns:1fr;}}
-.hier-col-label{font-size:13px;color:var(--ink-faint);margin-bottom:16px;}
-.hier-list{display:flex;flex-direction:column;gap:10px;}
-.hier-row{
-  display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:var(--radius-m);
-  border:1px solid var(--line);font-size:15px;background:var(--surface);
-}
-.hier-row.best{border-color:var(--accent);background:var(--accent-soft);}
-.hier-row .rank{font-family:'Newsreader',serif;font-style:italic;color:var(--ink-faint);font-size:14px;}
-.hier-row.best .rank{color:var(--accent-deep);}
-.avoid-row{
-  display:flex;align-items:center;gap:12px;padding:12px 4px;font-size:14.5px;color:var(--ink-faint);
-}
-.avoid-row .x{color:var(--red);font-size:16px;}
-
-/* ---------- SOURCE DISCOVERY ---------- */
-.discovery-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
-@media (max-width:900px){.discovery-grid{grid-template-columns:1fr;gap:40px;}}
-.discovery-list{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-l);padding:8px 26px;}
-.disc-row{display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1px solid var(--line-soft);}
-.disc-row:last-child{border-bottom:none;}
-.disc-name{font-size:15.5px;font-weight:500;}
-.disc-sub{font-size:13px;color:var(--ink-faint);margin-top:2px;}
-.disc-status{font-size:13px;color:var(--accent-deep);display:flex;align-items:center;gap:6px;}
-
-/* ---------- BEFORE/AFTER ---------- */
-.ba-note{font-size:13.5px;color:var(--ink-faint);font-style:italic;font-family:'Newsreader',serif;margin-bottom:34px;}
-.ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;}
-@media (max-width:700px){.ba-grid{grid-template-columns:1fr;}}
-.ba-card{border:1px solid var(--line);border-radius:var(--radius-l);padding:30px;background:var(--surface);}
-.ba-card.after{border-color:var(--accent);background:var(--accent-soft-2);}
-.ba-label{font-size:13px;color:var(--ink-faint);margin-bottom:20px;}
-.ba-stat{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--line-soft);}
-.ba-stat:last-child{border-bottom:none;}
-.ba-stat .stat-label{font-size:14.5px;color:var(--ink-soft);}
-.ba-stat .stat-num{font-family:'Newsreader',serif;font-size:26px;}
-
-/* ---------- WHY ALYRA ---------- */
-.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:40px;}
-@media (max-width:860px){.why-grid{grid-template-columns:repeat(2,1fr);}}
-@media (max-width:560px){.why-grid{grid-template-columns:1fr;}}
-.why-item .why-num{font-family:'Newsreader',serif;font-style:italic;color:var(--ink-faint);font-size:16px;margin-bottom:14px;}
-.why-item h3{font-size:17px;font-family:'Inter',sans-serif;font-weight:600;margin-bottom:8px;}
-.why-item p{font-size:14.5px;color:var(--ink-soft);}
-
-/* ---------- FAQ ---------- */
-.faq-list{max-width:760px;}
-.faq-item{border-bottom:1px solid var(--line-soft);}
-.faq-item summary{
-  list-style:none;cursor:pointer;padding:24px 0;display:flex;justify-content:space-between;align-items:center;
-  font-size:17px;font-weight:500;
-}
-.faq-item summary::-webkit-details-marker{display:none;}
-.faq-item summary .plus{font-size:20px;color:var(--ink-faint);font-weight:400;transition:transform .25s;}
-.faq-item[open] summary .plus{transform:rotate(45deg);}
-.faq-item p{padding-bottom:24px;color:var(--ink-soft);font-size:15.5px;max-width:620px;}
+/* ---------- PRICING VISUAL (feature row 3) ---------- */
+.price-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-l);padding:30px 32px;max-width:420px;margin:0 auto;}
+.price-card-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid var(--line-soft);}
+.price-card-head .label{font-size:13px;color:var(--ink-faint);}
+.price-card-head .value{font-family:'Newsreader',serif;font-style:italic;font-size:22px;color:var(--accent-deep);}
+.price-row{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--line-soft);font-size:14.5px;}
+.price-row:last-child{border-bottom:none;}
+.price-row .muted{color:var(--ink-faint);}
+.price-row .ok{color:var(--accent-deep);font-weight:500;}
 
 /* ---------- FINAL CTA ---------- */
 .final-cta{padding:150px 0;text-align:center;}
 .final-cta h2{font-size:clamp(32px,5vw,54px);max-width:720px;margin:0 auto;}
 .final-cta p{margin:22px auto 36px;max-width:480px;color:var(--ink-soft);font-size:18px;}
+
+/* ---------- WHY US ---------- */
+.whyus-wrap{max-width:640px;margin:0 auto;text-align:center;display:flex;flex-direction:column;align-items:center;}
+.whyus-avatar{width:76px;height:76px;border-radius:50%;object-fit:cover;margin-bottom:28px;border:1px solid var(--line);}
+.whyus-quote{font-family:'Newsreader',serif;font-style:italic;font-weight:400;font-size:clamp(21px,2.6vw,27px);line-height:1.5;color:var(--ink);}
+.whyus-name{margin-top:22px;font-size:14.5px;font-weight:600;}
+.whyus-name .muted{font-weight:400;color:var(--ink-faint);}
 
 /* ---------- FOOTER ---------- */
 footer{border-top:1px solid var(--line-soft);padding:64px 0 40px;}
@@ -420,8 +294,6 @@ footer{border-top:1px solid var(--line-soft);padding:64px 0 40px;}
 
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease;}
 .reveal.in{opacity:1;transform:translateY(0);}
-
-.countup{font-family:'Newsreader',serif;}
 </style>
 </head>
 <body>
@@ -431,8 +303,6 @@ footer{border-top:1px solid var(--line-soft);padding:64px 0 40px;}
     <a href="#" class="logo">Alyra</a>
     <div class="nav-links">
       <a href="#how">How it works</a>
-      <a href="#why">Why Alyra</a>
-      <a href="#faq">FAQ</a>
     </div>
     <div class="nav-cta">
       <a href="#audit" class="btn btn-primary">Get an AI Visibility Audit →</a>
@@ -444,57 +314,17 @@ footer{border-top:1px solid var(--line-soft);padding:64px 0 40px;}
 
   <!-- HERO -->
   <section class="hero">
-    <div class="container hero-grid">
-      <div>
-        <div class="hero-heading-row">
-          <h1>Your backlink partner<br>Built for AI search.</h1>
-          <div class="hero-logo-rotator" aria-hidden="true">
-            <img src="assets/logo-chatgpt.png" alt="">
-            <img src="assets/logo-claude.png" alt="">
-            <img src="assets/logo-google.png" alt="">
-            <img src="assets/logo-perplexity.png" alt="">
-          </div>
-        </div>
-        <p class="hero-sub">Alyra helps companies become visible in AI-generated recommendations by identifying the sources influencing AI answers and getting your brand into the right ones.</p>
-        <div class="hero-ctas">
-          <a href="#audit" class="btn btn-primary">Book a demo →</a>
-          <a href="#how" class="link-underline">See how it works</a>
-        </div>
-      </div>
-      <div class="ai-mock" id="heroMock">
-        <div class="ai-mock-prompt">Ask anything…</div>
-        <div class="ai-mock-q">What are the best project management tools for growing companies?</div>
-        <div class="ai-mock-answer">
-          <ol id="heroAnswerList"></ol>
-        </div>
-        <div class="mock-sources-label">Sources cited in answer</div>
-        <div class="mock-sources" id="heroSources"></div>
-        <div class="mock-callout"><span class="pill">AI source</span> Frequently cited · Alyra opportunity</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ASSISTANT MARQUEE -->
-  <section class="marquee-strip">
-    <p class="marquee-label">Tracking prompts across</p>
-    <div class="marquee-track">
-      <div class="marquee-group">
-        <span class="assistant-chip">ChatGPT</span>
-        <span class="assistant-chip">Claude</span>
-        <span class="assistant-chip">Gemini</span>
-        <span class="assistant-chip">Perplexity</span>
-      </div>
-      <div class="marquee-group" aria-hidden="true">
-        <span class="assistant-chip">ChatGPT</span>
-        <span class="assistant-chip">Claude</span>
-        <span class="assistant-chip">Gemini</span>
-        <span class="assistant-chip">Perplexity</span>
-      </div>
-      <div class="marquee-group" aria-hidden="true">
-        <span class="assistant-chip">ChatGPT</span>
-        <span class="assistant-chip">Claude</span>
-        <span class="assistant-chip">Gemini</span>
-        <span class="assistant-chip">Perplexity</span>
+    <div class="container">
+      <h1>Your backlink partner<br>Built for <span class="hero-logo-rotator" aria-hidden="true">
+        <img src="assets/logo-chatgpt.png" alt="">
+        <img src="assets/logo-claude.png" alt="">
+        <img src="assets/logo-google.png" alt="">
+        <img src="assets/logo-perplexity.png" alt="">
+      </span> AI search.</h1>
+      <p class="hero-sub">Alyra helps companies become visible in AI-generated recommendations by identifying the sources influencing AI answers and getting your brand into the right ones.</p>
+      <div class="hero-ctas">
+        <a href="#audit" class="btn btn-primary">Book a demo →</a>
+        <a href="#how" class="link-underline">See how it works</a>
       </div>
     </div>
   </section>
@@ -502,6 +332,10 @@ footer{border-top:1px solid var(--line-soft);padding:64px 0 40px;}
   <!-- BIG STATEMENT -->
   <section class="statement">
     <div class="container">
+      <span class="ping-ring" aria-hidden="true"></span>
+      <span class="ping-ring" aria-hidden="true"></span>
+      <span class="ping-ring" aria-hidden="true"></span>
+      <span class="ping-dot" aria-hidden="true"></span>
       <div class="statement-inner reveal">
         <h2>Get more mentioned<br><span class="serif-italic">where AI looks.</span></h2>
         <p>AI assistants don't invent every recommendation from scratch. They draw on information from websites, publications, directories, comparison pages and other sources. Alyra finds the sources that matter for your category, and helps you become part of them.</p>
@@ -516,332 +350,168 @@ footer{border-top:1px solid var(--line-soft);padding:64px 0 40px;}
         <span class="eyebrow">How it works</span>
         <h2>Four steps, run on repeat.</h2>
       </div>
-      <div class="how-grid">
-        <div class="step-list" id="stepList">
-          <div class="step-item active" data-step="0">
-            <span class="step-num">01</span>
-            <div class="step-body">
-              <h3>Monitor</h3>
-              <p>We run commercially relevant prompts across leading AI assistants and track how your company and competitors appear.</p>
+    </div>
+    <div class="how-scrollarea" id="howScrollArea">
+      <div class="how-pin">
+        <div class="container">
+          <div class="how-grid">
+            <div class="step-list" id="stepList">
+              <div class="step-item active" data-step="0">
+                <span class="step-num">01</span>
+                <div class="step-body">
+                  <h3>Monitor</h3>
+                  <p>We run commercially relevant prompts across leading AI assistants and track how your company and competitors appear.</p>
+                </div>
+              </div>
+              <div class="step-item" data-step="1">
+                <span class="step-num">02</span>
+                <div class="step-body">
+                  <h3>Map</h3>
+                  <p>We identify the websites, publications and sources repeatedly influencing AI answers in your category.</p>
+                </div>
+              </div>
+              <div class="step-item" data-step="2">
+                <span class="step-num">03</span>
+                <div class="step-body">
+                  <h3>Acquire</h3>
+                  <p>We contact relevant publishers and sources to secure legitimate, contextually relevant mentions and placements.</p>
+                </div>
+              </div>
+              <div class="step-item" data-step="3">
+                <span class="step-num">04</span>
+                <div class="step-body">
+                  <h3>Measure</h3>
+                  <p>We run the same prompts again and monitor changes in your AI visibility over time.</p>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="step-item" data-step="1">
-            <span class="step-num">02</span>
-            <div class="step-body">
-              <h3>Map</h3>
-              <p>We identify the websites, publications and sources repeatedly influencing AI answers in your category.</p>
+            <div class="step-visual">
+              <div class="step-panel active" data-panel="0">
+                <span class="panel-tag">Monitor</span>
+                <div class="panel-row"><span>Prompt tracked</span><span class="muted">"best CRM for SaaS teams"</span></div>
+                <div class="panel-row"><span>Assistants covered</span><span class="muted">ChatGPT, Gemini, Perplexity</span></div>
+                <div class="panel-row"><span>Your brand appears</span><span class="muted">Not yet</span></div>
+                <div class="panel-row"><span>Competitor appears</span><span class="muted">3 times this week</span></div>
+              </div>
+              <div class="step-panel" data-panel="1">
+                <span class="panel-tag">Map</span>
+                <div class="panel-row"><span>Source A</span><span class="muted">High influence</span></div>
+                <div class="panel-row"><span>Source B</span><span class="muted">Frequently cited</span></div>
+                <div class="panel-row"><span>Source C</span><span class="muted">Relevant</span></div>
+                <div class="panel-row"><span>Source D</span><span class="muted">Competitor source</span></div>
+              </div>
+              <div class="step-panel" data-panel="2">
+                <span class="panel-tag">Acquire</span>
+                <div class="panel-row"><span>Outreach sent</span><span class="muted">Editor, Industry Publication</span></div>
+                <div class="panel-row"><span>Reply received</span><span class="muted">Open to a mention</span></div>
+                <div class="panel-row"><span>Terms</span><span class="muted">Negotiated</span></div>
+                <div class="panel-row"><span>Status</span><span class="muted">Placement live</span></div>
+              </div>
+              <div class="step-panel" data-panel="3">
+                <span class="panel-tag">Measure</span>
+                <div class="panel-row"><span>Prompt re-run</span><span class="muted">This week</span></div>
+                <div class="panel-row"><span>AI visibility</span><span class="muted">Trending up</span></div>
+                <div class="panel-row"><span>New sources found</span><span class="muted">4</span></div>
+                <div class="panel-row"><span>Next review</span><span class="muted">In 7 days</span></div>
+              </div>
             </div>
-          </div>
-          <div class="step-item" data-step="2">
-            <span class="step-num">03</span>
-            <div class="step-body">
-              <h3>Acquire</h3>
-              <p>We contact relevant publishers and sources to secure legitimate, contextually relevant mentions and placements.</p>
-            </div>
-          </div>
-          <div class="step-item" data-step="3">
-            <span class="step-num">04</span>
-            <div class="step-body">
-              <h3>Measure</h3>
-              <p>We run the same prompts again and monitor changes in your AI visibility over time.</p>
-            </div>
-          </div>
-        </div>
-        <div class="step-visual">
-          <div class="step-panel active" data-panel="0">
-            <span class="panel-tag">Monitor</span>
-            <div class="panel-row"><span>Prompt tracked</span><span class="muted">"best CRM for SaaS teams"</span></div>
-            <div class="panel-row"><span>Assistants covered</span><span class="muted">ChatGPT, Gemini, Perplexity</span></div>
-            <div class="panel-row"><span>Your brand appears</span><span class="muted">Not yet</span></div>
-            <div class="panel-row"><span>Competitor appears</span><span class="muted">3 times this week</span></div>
-          </div>
-          <div class="step-panel" data-panel="1">
-            <span class="panel-tag">Map</span>
-            <div class="panel-row"><span>Source A</span><span class="muted">High influence</span></div>
-            <div class="panel-row"><span>Source B</span><span class="muted">Frequently cited</span></div>
-            <div class="panel-row"><span>Source C</span><span class="muted">Relevant</span></div>
-            <div class="panel-row"><span>Source D</span><span class="muted">Competitor source</span></div>
-          </div>
-          <div class="step-panel" data-panel="2">
-            <span class="panel-tag">Acquire</span>
-            <div class="panel-row"><span>Outreach sent</span><span class="muted">Editor, Industry Publication</span></div>
-            <div class="panel-row"><span>Reply received</span><span class="muted">Open to a mention</span></div>
-            <div class="panel-row"><span>Terms</span><span class="muted">Negotiated</span></div>
-            <div class="panel-row"><span>Status</span><span class="muted">Placement live</span></div>
-          </div>
-          <div class="step-panel" data-panel="3">
-            <span class="panel-tag">Measure</span>
-            <div class="panel-row"><span>Prompt re-run</span><span class="muted">This week</span></div>
-            <div class="panel-row"><span>AI visibility</span><span class="muted">Trending up</span></div>
-            <div class="panel-row"><span>New sources found</span><span class="muted">4</span></div>
-            <div class="panel-row"><span>Next review</span><span class="muted">In 7 days</span></div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- DEMO: MONITOR -->
+  <!-- VALUE PROP 1: NOT LISTED IN MARKETPLACES -->
   <section class="section on-line">
     <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">Monitor</span>
-        <h2>See exactly what AI is telling your customers.</h2>
-        <p>We ask the questions your buyers are already asking, then break down who gets mentioned and why.</p>
-      </div>
-      <div class="demo-mock reveal">
-        <div class="ai-mock-q">What's the best CRM for a 50-person SaaS company?</div>
-        <div class="ai-mock-answer">
-          <ol>
-            <li>Ridgeline CRM <span class="tag competitor" style="margin-left:auto">Competitor</span></li>
-            <li>Fieldstone <span class="tag competitor" style="margin-left:auto">Competitor</span></li>
-            <li>Northbeam <span class="tag gap" style="margin-left:auto">Source gap</span></li>
-          </ol>
+      <div class="feature-row">
+        <div class="feature-text reveal">
+          <span class="eyebrow">Not for sale</span>
+          <h2>The best opportunities aren't listed in marketplaces.</h2>
+          <p>Trusted companies never put themselves up for sale. The sources that actually move AI answers already sit inside your ecosystem — software partners, integrators, agencies, specialized media — and that's exactly where we go looking.</p>
         </div>
-        <div class="mock-sources-label">Sources cited in answer</div>
-        <div style="margin-top:6px;">
-          <div class="source-row"><span class="name"><span class="favicon">OG</span> The Operator's Guide</span><span class="tag brand">Your brand</span></div>
-          <div class="source-row"><span class="name"><span class="favicon">SW</span> SaaS Weekly</span><span class="tag competitor">Competitor</span></div>
-          <div class="source-row"><span class="name"><span class="favicon">TR</span> Toolstack Review</span><span class="tag gap">Source gap</span></div>
+        <div class="feature-visual reveal">
+          <div class="map-wrap" id="mapWrap">
+            <svg class="map-lines" viewBox="0 0 600 460">
+              <path class="high" d="M300,230 L120,90"/>
+              <path class="high" d="M300,230 L480,80"/>
+              <path d="M300,230 L90,260"/>
+              <path d="M300,230 L500,270"/>
+              <path d="M300,230 L150,400"/>
+              <path d="M300,230 L450,400"/>
+            </svg>
+            <div class="map-center">AI<br>answers</div>
+            <div class="map-node" style="top:8%;left:6%;"><div class="node-label">The Operator's Guide</div><div class="node-tag">High influence</div></div>
+            <div class="map-node" style="top:2%;right:2%;"><div class="node-label">SaaS Weekly</div><div class="node-tag">Frequently cited</div></div>
+            <div class="map-node" style="top:48%;left:0%;"><div class="node-label">Toolstack Review</div><div class="node-tag">Relevant</div></div>
+            <div class="map-node competitor" style="top:52%;right:0%;"><div class="node-label">Ops Digest</div><div class="node-tag">Competitor source</div></div>
+            <div class="map-node" style="bottom:2%;left:14%;"><div class="node-label">Industry Association</div><div class="node-tag">Relevant</div></div>
+            <div class="map-node competitor" style="bottom:2%;right:8%;"><div class="node-label">Comparison Hub</div><div class="node-tag">Competitor source</div></div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- DEMO: MAP -->
+  <!-- VALUE PROP 2: OUTBOUND EXPERTISE -->
   <section class="section on-line">
     <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">Map</span>
-        <h2>AI answers draw from recurring sources.</h2>
-        <p>We trace every citation back to the publications, tools and directories driving your category's answers.</p>
-      </div>
-      <div class="map-wrap reveal" id="mapWrap">
-        <svg class="map-lines" viewBox="0 0 600 460">
-          <path class="high" d="M300,230 L120,90"/>
-          <path class="high" d="M300,230 L480,80"/>
-          <path d="M300,230 L90,260"/>
-          <path d="M300,230 L500,270"/>
-          <path d="M300,230 L150,400"/>
-          <path d="M300,230 L450,400"/>
-        </svg>
-        <div class="map-center">AI<br>answers</div>
-        <div class="map-node" style="top:8%;left:6%;"><div class="node-label">The Operator's Guide</div><div class="node-tag">High influence</div></div>
-        <div class="map-node" style="top:2%;right:2%;"><div class="node-label">SaaS Weekly</div><div class="node-tag">Frequently cited</div></div>
-        <div class="map-node" style="top:48%;left:0%;"><div class="node-label">Toolstack Review</div><div class="node-tag">Relevant</div></div>
-        <div class="map-node competitor" style="top:52%;right:0%;"><div class="node-label">Ops Digest</div><div class="node-tag">Competitor source</div></div>
-        <div class="map-node" style="bottom:2%;left:14%;"><div class="node-label">Industry Association</div><div class="node-tag">Relevant</div></div>
-        <div class="map-node competitor" style="bottom:2%;right:8%;"><div class="node-label">Comparison Hub</div><div class="node-tag">Competitor source</div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- DEMO: ACQUIRE -->
-  <section class="section on-line">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">Acquire</span>
-        <h2>We do the outreach and the negotiation.</h2>
-        <p>Original, contextual pitches to the editors and publishers who already have your buyers' attention.</p>
-      </div>
-      <div class="acquire-grid reveal">
-        <div class="email-mock">
-          <div class="email-head">
-            <div class="field"><b>To</b> Editor, Industry Publication</div>
-            <div class="field"><b>Subject</b> Mention in your article</div>
-          </div>
-          <div class="email-body">
-            <p>Your article keeps appearing when people ask AI about project management tools for growing teams.</p>
-            <p>We work with a company that would be genuinely useful to your readers, and would love to offer a short, relevant mention in exchange for a fair placement fee.</p>
-            <p class="sign">Best,<br>Alyra</p>
-          </div>
+      <div class="feature-row reverse">
+        <div class="feature-text reveal">
+          <span class="eyebrow">Outbound, handled</span>
+          <h2>Don't waste time chasing editors yourself.</h2>
+          <p>Benefit from our outbound expertise and existing network of publishers. Spend your time on strategy — we'll handle the research, the outreach and the negotiation from first contact to placement.</p>
         </div>
-        <div class="pipeline" id="pipeline">
-          <div class="pipe-step" data-p="0"><div class="pipe-dot"></div><div class="pipe-text"><h4>Outreach</h4><p>Pitch sent to a relevant editor.</p></div></div>
-          <div class="pipe-step" data-p="1"><div class="pipe-dot"></div><div class="pipe-text"><h4>Reply</h4><p>Editor responds, open to a mention.</p></div></div>
-          <div class="pipe-step" data-p="2"><div class="pipe-dot"></div><div class="pipe-text"><h4>Negotiation</h4><p>Terms and placement agreed.</p></div></div>
-          <div class="pipe-step" data-p="3"><div class="pipe-dot"></div><div class="pipe-text"><h4>Placement</h4><p>Mention goes live on the source.</p></div></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- DEMO: APPROVAL -->
-  <section class="section on-line">
-    <div class="container">
-      <div class="section-head reveal" style="margin-left:auto;margin-right:auto;text-align:center;">
-        <span class="eyebrow">Approve</span>
-        <h2>Every placement passes by you first.</h2>
-        <p style="margin-left:auto;margin-right:auto;">Nothing goes live without your sign-off.</p>
-      </div>
-      <div class="approval-wrap reveal">
-        <div class="card-stack" id="cardStack">
-          <div class="opp-card behind" data-card="2" style="display:flex;align-items:center;justify-content:center;text-align:center;">
-            <p style="color:var(--ink-faint);font-size:15px;">You're caught up. New opportunities appear as we find them.</p>
-          </div>
-          <div class="opp-card behind" data-card="1" id="oppCard1">
-            <span class="opp-title">New opportunity</span>
-            <div class="opp-name">Toolstack Review</div>
-            <div class="opp-rows">
-              <div class="opp-row"><span class="muted">Domain authority</span><span>Medium</span></div>
-              <div class="opp-row"><span class="muted">AI citation frequency</span><span>Medium</span></div>
-              <div class="opp-row"><span class="muted">Relevance</span><span>77%</span></div>
-              <div class="opp-row"><span class="muted">Placement</span><span>New guide</span></div>
+        <div class="feature-visual reveal">
+          <div class="email-mock" style="margin-bottom:24px;">
+            <div class="email-head">
+              <div class="field"><b>To</b> Editor, Industry Publication</div>
+              <div class="field"><b>Subject</b> Mention in your article</div>
             </div>
-            <div class="opp-status">Status: Awaiting approval</div>
-            <div class="opp-buttons">
-              <div class="opp-btn pass" onclick="decideCard('pass')">Pass</div>
-              <div class="opp-btn approve" onclick="decideCard('approve')">Approve</div>
+            <div class="email-body">
+              <p>Your article keeps appearing when people ask AI about project management tools for growing teams.</p>
+              <p>We work with a company that would be genuinely useful to your readers, and would love to offer a short, relevant mention in exchange for a fair placement fee.</p>
+              <p class="sign">Best,<br>Alyra</p>
             </div>
           </div>
-          <div class="opp-card front" data-card="0">
-            <span class="opp-title">New opportunity</span>
-            <div class="opp-name">Industry Weekly</div>
-            <div class="opp-rows">
-              <div class="opp-row"><span class="muted">Domain authority</span><span>High</span></div>
-              <div class="opp-row"><span class="muted">AI citation frequency</span><span>High</span></div>
-              <div class="opp-row"><span class="muted">Relevance</span><span>92%</span></div>
-              <div class="opp-row"><span class="muted">Placement</span><span>Existing article</span></div>
-            </div>
-            <div class="opp-status">Status: Awaiting approval</div>
-            <div class="opp-buttons">
-              <div class="opp-btn pass" onclick="decideCard('pass')">Pass</div>
-              <div class="opp-btn approve" onclick="decideCard('approve')">Approve</div>
-            </div>
+          <div class="pipeline" id="pipeline">
+            <div class="pipe-step" data-p="0"><div class="pipe-dot"></div><div class="pipe-text"><h4>Outreach</h4><p>Pitch sent to a relevant editor.</p></div></div>
+            <div class="pipe-step" data-p="1"><div class="pipe-dot"></div><div class="pipe-text"><h4>Reply</h4><p>Editor responds, open to a mention.</p></div></div>
+            <div class="pipe-step" data-p="2"><div class="pipe-dot"></div><div class="pipe-text"><h4>Negotiation</h4><p>Terms and placement agreed.</p></div></div>
+            <div class="pipe-step" data-p="3"><div class="pipe-dot"></div><div class="pipe-text"><h4>Placement</h4><p>Mention goes live on the source.</p></div></div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- NOT JUST BACKLINKS -->
+  <!-- VALUE PROP 3: FAIR PRICE -->
   <section class="section on-line">
     <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">Not more backlinks.</span>
-        <h2>Better sources.</h2>
-        <p>Alyra doesn't chase volume. We identify the sources that repeatedly appear in AI answers for your category, then pursue relevant opportunities within those ecosystems.</p>
-      </div>
-      <div class="hierarchy-wrap reveal">
-        <div>
-          <div class="hier-col-label">What we pursue</div>
-          <div class="hier-list">
-            <div class="hier-row best"><span class="rank">i</span> Relevant editorial mention</div>
-            <div class="hier-row"><span class="rank">ii</span> Expert contribution</div>
-            <div class="hier-row"><span class="rank">iii</span> Industry publication</div>
-            <div class="hier-row"><span class="rank">iv</span> Comparison or directory</div>
-            <div class="hier-row"><span class="rank">v</span> Sponsored content</div>
-          </div>
+      <div class="feature-row">
+        <div class="feature-text reveal">
+          <span class="eyebrow">Transparent pricing</span>
+          <h2>Pay a fair price, always.</h2>
+          <p>One transparent price from the start — no hidden or unexpected fees. We negotiate every placement individually to get you the best possible deal.</p>
         </div>
-        <div>
-          <div class="hier-col-label">What we avoid</div>
-          <div>
-            <div class="avoid-row"><span class="x">✕</span> Random backlinks</div>
-            <div class="avoid-row"><span class="x">✕</span> Low-quality directories</div>
-            <div class="avoid-row"><span class="x">✕</span> Link farms</div>
+        <div class="feature-visual reveal">
+          <div class="price-card">
+            <div class="price-card-head"><span class="label">Placement fee</span><span class="value">Fixed, upfront</span></div>
+            <div class="price-row"><span>Hidden costs</span><span class="muted">None, ever</span></div>
+            <div class="price-row"><span>Negotiation</span><span class="ok">Done for you</span></div>
+            <div class="price-row"><span>Contract</span><span class="muted">Cancel anytime</span></div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SOURCE DISCOVERY -->
-  <section class="section on-line">
+  <!-- FINAL CTA -->
+  <section class="final-cta" id="audit">
     <div class="container">
-      <div class="discovery-grid">
-        <div class="reveal">
-          <span class="eyebrow">Source discovery</span>
-          <h2 style="font-size:clamp(26px,3.4vw,38px);">The best opportunities aren't always for sale.</h2>
-          <p style="margin-top:18px;font-size:17px;color:var(--ink-soft);">Some of the most valuable sources are already part of your industry's ecosystem: publications, software companies, associations, partners and specialist media. Alyra finds them.</p>
-        </div>
-        <div class="discovery-list reveal">
-          <div class="disc-row"><div><div class="disc-name">Industry Weekly</div><div class="disc-sub">Editorial publication</div></div><div class="disc-status">Cited by AI</div></div>
-          <div class="disc-row"><div><div class="disc-name">Toolstack Review</div><div class="disc-sub">Comparison site</div></div><div class="disc-status">Cited by AI</div></div>
-          <div class="disc-row"><div><div class="disc-name">The Operator's Guide</div><div class="disc-sub">Independent newsletter</div></div><div class="disc-status">Cited by AI</div></div>
-          <div class="disc-row"><div><div class="disc-name">Industry Association</div><div class="disc-sub">Trade body</div></div><div class="disc-status">Relevant</div></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- BEFORE / AFTER -->
-  <section class="section on-line">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">Illustrative example</span>
-        <h2>What a shift in AI visibility looks like.</h2>
-      </div>
-      <p class="ba-note">Figures below are illustrative only and do not represent real Alyra results.</p>
-      <div class="ba-grid reveal" id="baGrid">
-        <div class="ba-card">
-          <div class="ba-label">Before</div>
-          <div class="ba-stat"><span class="stat-label">AI visibility</span><span class="stat-num countup" data-to="12">0</span>%</div>
-          <div class="ba-stat"><span class="stat-label">Competitor mentions</span><span class="stat-num countup" data-to="41">0</span>%</div>
-          <div class="ba-stat"><span class="stat-label">Relevant source coverage</span><span class="stat-num" style="font-size:18px;">Low</span></div>
-        </div>
-        <div class="ba-card after">
-          <div class="ba-label">After</div>
-          <div class="ba-stat"><span class="stat-label">AI visibility</span><span class="stat-num countup" data-to="32">0</span>%</div>
-          <div class="ba-stat"><span class="stat-label">Competitor mentions</span><span class="stat-num countup" data-to="35">0</span>%</div>
-          <div class="ba-stat"><span class="stat-label">Relevant source coverage</span><span class="stat-num" style="font-size:18px;">High</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- WHY ALYRA -->
-  <section class="section on-line" id="why">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">Why Alyra</span>
-        <h2>Visibility, handled end to end.</h2>
-      </div>
-      <div class="why-grid reveal">
-        <div class="why-item"><div class="why-num">i</div><h3>AI visibility</h3><p>Know where you appear, and where you don't, across the AI assistants your customers use.</p></div>
-        <div class="why-item"><div class="why-num">ii</div><h3>Source intelligence</h3><p>Understand which sources influence AI answers in your category, and why.</p></div>
-        <div class="why-item"><div class="why-num">iii</div><h3>Outreach</h3><p>We handle the research, the outreach and the negotiation with publishers.</p></div>
-        <div class="why-item"><div class="why-num">iv</div><h3>Measurement</h3><p>Track visibility over time, using the same prompts, so progress is easy to see.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="section on-line" id="faq">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">FAQ</span>
-        <h2>Questions, answered plainly.</h2>
-      </div>
-      <div class="faq-list reveal">
-        <details class="faq-item">
-          <summary>What is AI visibility? <span class="plus">+</span></summary>
-          <p>AI visibility is how often, and how favorably, your company shows up when people ask AI assistants questions related to your category.</p>
-        </details>
-        <details class="faq-item">
-          <summary>How is AI visibility different from SEO? <span class="plus">+</span></summary>
-          <p>SEO optimizes for ranking in search results pages. AI visibility is about being part of the sources an AI assistant draws on to construct its answer, which isn't always the same set of pages that rank highest.</p>
-        </details>
-        <details class="faq-item">
-          <summary>Can Alyra guarantee that ChatGPT will mention my company? <span class="plus">+</span></summary>
-          <p>No. AI answers are dynamic and no responsible provider can guarantee a specific recommendation or citation. Alyra focuses on identifying the sources that influence AI answers and increasing your presence within relevant, credible sources.</p>
-        </details>
-        <details class="faq-item">
-          <summary>Which AI assistants do you monitor? <span class="plus">+</span></summary>
-          <p>We track prompts across the major AI assistants, including ChatGPT, Gemini, Perplexity and Claude, along with other AI search experiences as they gain adoption.</p>
-        </details>
-        <details class="faq-item">
-          <summary>Do you provide backlinks? <span class="plus">+</span></summary>
-          <p>We may secure links where appropriate, but our objective is not backlink volume. We prioritize relevant third-party mentions and sources that matter within your category.</p>
-        </details>
-        <details class="faq-item">
-          <summary>How long does it take to see results? <span class="plus">+</span></summary>
-          <p>It varies by category and how competitive it is. Monitoring starts immediately; source mapping and outreach typically build visibility over the following weeks and months.</p>
-        </details>
-        <details class="faq-item">
-          <summary>Do I need to change my website? <span class="plus">+</span></summary>
-          <p>Not necessarily. Most of Alyra's work happens off your site, with third-party sources. We'll flag any on-site changes worth making if they'd meaningfully help.</p>
-        </details>
-      </div>
+      <h2 class="reveal">Ready to get discovered by AI?</h2>
+      <p class="reveal">See where you stand today — no commitment.</p>
+      <a href="#" class="btn btn-primary reveal">Book a demo →</a>
     </div>
   </section>
 
@@ -853,15 +523,6 @@ footer{border-top:1px solid var(--line-soft);padding:64px 0 40px;}
         <blockquote class="whyus-quote">10+ years of B2B sales and growth. Then GEO and hundreds of leads generated for brands. That's our unfair advantage and now it's yours.</blockquote>
         <div class="whyus-name">JB <span class="muted">Founder, Alyra</span></div>
       </div>
-    </div>
-  </section>
-
-  <!-- FINAL CTA -->
-  <section class="final-cta" id="audit">
-    <div class="container">
-      <h2 class="reveal">Make sure you're part of the answer.</h2>
-      <p class="reveal">Find out how your company appears across the questions your customers are already asking AI.</p>
-      <a href="#" class="btn btn-primary reveal">Get your AI Visibility Audit →</a>
     </div>
   </section>
 
@@ -879,7 +540,7 @@ footer{border-top:1px solid var(--line-soft);padding:64px 0 40px;}
         <div class="footer-col">
           <h4>Explore</h4>
           <a href="#how">How it works</a>
-          <a href="#faq">FAQ</a>
+          <a href="#audit">Book a demo</a>
         </div>
         <div class="footer-col">
           <h4>Legal</h4>
@@ -903,117 +564,81 @@ const revealObs = new IntersectionObserver((entries)=>{
 },{threshold:0.15});
 revealEls.forEach(el=>revealObs.observe(el));
 
-// ---------- Hero AI answer typing / reveal ----------
-const heroAnswers = ['Northbeam','Ridgeline','Fieldstone','Loomwork'];
-const heroSourcesData = [
-  {name:"The Operator's Guide", opp:true},
-  {name:'SaaS Weekly', opp:false},
-  {name:'Toolstack Review', opp:false},
-  {name:'Ops Digest', opp:false}
-];
-function playHero(){
-  const list = document.getElementById('heroAnswerList');
-  const srcWrap = document.getElementById('heroSources');
-  list.innerHTML='';
-  srcWrap.innerHTML='';
-  heroAnswers.forEach((name,i)=>{
-    const li=document.createElement('li');
-    li.textContent=name;
-    li.style.animationDelay=(0.3+i*0.28)+'s';
-    list.appendChild(li);
-  });
-  heroSourcesData.forEach((s,i)=>{
-    const chip=document.createElement('div');
-    chip.className='source-chip'+(s.opp?' is-opportunity':'');
-    chip.innerHTML='<span class="dot"></span>'+s.name;
-    chip.style.animationDelay=(1.5+i*0.15)+'s';
-    srcWrap.appendChild(chip);
-  });
-}
-const heroObs = new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){ playHero(); heroObs.unobserve(e.target); }
-  });
-},{threshold:0.3});
-heroObs.observe(document.getElementById('heroMock'));
+// ---------- How it works: pinned scrollytelling ----------
+const howScrollArea = document.getElementById('howScrollArea');
+const stepItems = Array.from(document.querySelectorAll('.step-item'));
+const stepPanels = Array.from(document.querySelectorAll('.step-panel'));
+const numSteps = stepItems.length;
 
-// ---------- How it works: scroll-synced steps ----------
-const stepItems = document.querySelectorAll('.step-item');
-const stepPanels = document.querySelectorAll('.step-panel');
+function isDesktopScrolly(){ return window.innerWidth >= 900; }
+
 function setStep(i){
-  stepItems.forEach(s=>s.classList.toggle('active', s.dataset.step==i));
-  stepPanels.forEach(p=>p.classList.toggle('active', p.dataset.panel==i));
+  stepItems.forEach(s=> s.classList.toggle('active', +s.dataset.step === i));
+  stepPanels.forEach(p=> p.classList.toggle('active', +p.dataset.panel === i));
 }
+
+function updateHowFromScroll(){
+  if(!isDesktopScrolly()) return;
+  const rect = howScrollArea.getBoundingClientRect();
+  const scrollAreaHeight = howScrollArea.offsetHeight;
+  const viewportH = window.innerHeight;
+  const maxScroll = scrollAreaHeight - viewportH;
+  const scrolled = -rect.top;
+  let progress = maxScroll > 0 ? scrolled / maxScroll : 0;
+  progress = Math.min(1, Math.max(0, progress));
+  let idx = Math.floor(progress * numSteps);
+  idx = Math.min(numSteps - 1, Math.max(0, idx));
+  setStep(idx);
+}
+window.addEventListener('scroll', updateHowFromScroll, {passive:true});
+window.addEventListener('resize', updateHowFromScroll);
+updateHowFromScroll();
+
 stepItems.forEach(item=>{
-  item.addEventListener('click', ()=> setStep(item.dataset.step));
-});
-const stepObs = new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){ setStep(e.target.dataset.step); }
+  item.addEventListener('click', ()=>{
+    const idx = +item.dataset.step;
+    if(isDesktopScrolly()){
+      const rect = howScrollArea.getBoundingClientRect();
+      const scrollAreaTop = window.scrollY + rect.top;
+      const scrollAreaHeight = howScrollArea.offsetHeight;
+      const viewportH = window.innerHeight;
+      const maxScroll = scrollAreaHeight - viewportH;
+      const targetProgress = (idx + 0.5) / numSteps;
+      const targetY = scrollAreaTop + targetProgress * Math.max(0, maxScroll);
+      window.scrollTo({top: targetY, behavior:'smooth'});
+    } else {
+      setStep(idx);
+    }
   });
-},{threshold:0.6, rootMargin:'-20% 0px -20% 0px'});
-stepItems.forEach(s=>stepObs.observe(s));
+});
 
 // ---------- Map lines draw-in ----------
 const mapWrap = document.getElementById('mapWrap');
-const mapObs = new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){ mapWrap.classList.add('in-view'); mapObs.unobserve(e.target); }
-  });
-},{threshold:0.4});
-mapObs.observe(mapWrap);
+if(mapWrap){
+  const mapObs = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ mapWrap.classList.add('in-view'); mapObs.unobserve(e.target); }
+    });
+  },{threshold:0.4});
+  mapObs.observe(mapWrap);
+}
 
 // ---------- Acquire pipeline sequence ----------
 const pipeline = document.getElementById('pipeline');
-function playPipeline(){
-  const steps = pipeline.querySelectorAll('.pipe-step');
-  steps.forEach((s,i)=>{
-    setTimeout(()=> s.classList.add('done'), i*500);
-  });
+if(pipeline){
+  function playPipeline(){
+    const steps = pipeline.querySelectorAll('.pipe-step');
+    steps.forEach((s,i)=>{
+      setTimeout(()=> s.classList.add('done'), i*500);
+    });
+  }
+  const pipeObs = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ playPipeline(); pipeObs.unobserve(e.target); }
+    });
+  },{threshold:0.5});
+  pipeObs.observe(pipeline);
 }
-const pipeObs = new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){ playPipeline(); pipeObs.unobserve(e.target); }
-  });
-},{threshold:0.5});
-pipeObs.observe(pipeline);
-
-// ---------- Approval card ----------
-function decideCard(kind){
-  const front = document.querySelector('.opp-card.front');
-  front.classList.add('away');
-  setTimeout(()=>{
-    const behindCards = Array.from(document.querySelectorAll('.opp-card.behind'))
-      .sort((a,b)=> parseInt(a.dataset.card) - parseInt(b.dataset.card));
-    const next = behindCards[0];
-    if(next){
-      next.classList.remove('behind');
-      next.classList.add('front');
-    }
-  }, 420);
-}
-
-// ---------- Before/after count-up ----------
-const baGrid = document.getElementById('baGrid');
-function countUp(el){
-  const to = parseInt(el.dataset.to,10);
-  let cur = 0;
-  const step = Math.max(1, Math.round(to/30));
-  const t = setInterval(()=>{
-    cur += step;
-    if(cur>=to){ cur=to; clearInterval(t); }
-    el.textContent = cur;
-  }, 25);
-}
-const baObs = new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      document.querySelectorAll('.countup').forEach(countUp);
-      baObs.unobserve(e.target);
-    }
-  });
-},{threshold:0.4});
-baObs.observe(baGrid);
 </script>
 
 </body>
