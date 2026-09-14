@@ -1,0 +1,6 @@
+name = "alyra"
+compatibility_date = "2026-09-14"
+
+[assets]
+directory = "./public"
+# binding = "ASSETS"   # uncomment only if you later add a Worker script that needs to read assets programmatically
