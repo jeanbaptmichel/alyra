@@ -129,6 +129,7 @@ nav{
   font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.06em;text-transform:uppercase;
   color:var(--ink-45);display:block;margin-top:2px;
 }
+.nav-dropdown-item.current-lang{color:var(--petrol);font-weight:500;}
 
 /* ---------- FOOTER ---------- */
 footer{background:var(--footer-bg);padding:56px 0 40px;}
