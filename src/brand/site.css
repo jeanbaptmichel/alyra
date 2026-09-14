@@ -172,3 +172,31 @@ article > footer{margin-top:48px;padding-top:32px;border-top:1px solid var(--hai
 .blog-card h3{font-size:19px;margin:6px 0 10px;line-height:1.3;}
 .blog-card p{font-size:14.5px;color:var(--ink-70);line-height:1.55;margin-bottom:14px;}
 .blog-card-meta{font-family:var(--font-mono);font-size:11px;color:var(--ink-45);letter-spacing:0.04em;}
+
+/* ---------- CONTACT / DEMO FORM (same form as the homepage) ---------- */
+.final-cta{padding:clamp(72px,10vw,128px) 0;text-align:center;}
+.final-cta .eyebrow{text-align:center;}
+.final-cta h1,.final-cta h2{font-size:clamp(32px,5vw,52px);max-width:720px;margin:0 auto;}
+.final-cta p{margin:22px auto 0;max-width:480px;color:var(--ink-70);font-size:18px;}
+
+.demo-form{
+  text-align:left;background:var(--card);border:1px solid var(--hairline);border-radius:var(--radius);
+  max-width:640px;margin:40px auto 0;padding:40px;
+}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px 24px;}
+.field{display:flex;flex-direction:column;gap:8px;}
+.field-full{grid-column:1/-1;}
+.field label{font-family:var(--font-sans);font-size:13px;color:var(--ink-70);}
+.field input{
+  background:var(--card);border:1px solid var(--hairline-strong);border-radius:var(--radius);
+  padding:13px 14px;font-family:var(--font-sans);font-size:15px;color:var(--ink);
+  transition:border-color .15s ease-out, box-shadow .15s ease-out;
+}
+.field input::placeholder{color:var(--ink-45);}
+.field input:focus{outline:none;border-color:var(--petrol);box-shadow:inset 0 0 0 1px var(--petrol);}
+.field-hint{font-size:12.5px;color:var(--ink-45);}
+.demo-form .btn-primary{width:100%;justify-content:center;margin-top:28px;}
+@media (max-width:640px){
+  .demo-form{padding:28px 20px;}
+  .form-grid{grid-template-columns:1fr;}
+}
