@@ -304,6 +304,9 @@ nav{
 /* ---------- HOW IT WORKS (scrollytelling) ---------- */
 .how-scrollarea{position:relative;height:340vh;margin-top:8px;}
 .how-pin{position:sticky;top:0;height:100vh;display:flex;align-items:center;padding:20px 0;}
+@media (min-width:901px){
+  .how-pin{align-items:flex-start;padding-top:64px;}
+}
 .how-grid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:64px;width:100%;}
 @media (max-width:900px){
   .how-scrollarea{height:auto;margin-top:0;}
