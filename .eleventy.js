@@ -67,10 +67,6 @@ module.exports = function (eleventyConfig) {
     return d.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
   });
 
-  // Filters a collection down to one language — used to split the mixed-language
-  // pillar-* collections by lang on the /blog/ and /fr/blog/ index pages.
-  eleventyConfig.addFilter("byLang", (arr, lang) => (arr || []).filter((item) => item.data.lang === lang));
-
   return {
     dir: {
       input: "src",

@@ -15,25 +15,25 @@ eleventyExcludeFromCollections: true
   {% include "partials/translation-note.njk" %}
 </div>
 
-<div class="blog-index-body">
+<div class="pillar-tabs" data-controls="blog-grid-en">
+  <button type="button" class="pillar-tab active" data-pillar="all">All</button>
   {% for p in pillars %}
-    {% set items = collections['pillar-' + p.key] | byLang('en') %}
-    {% if items.length %}
-    <section class="pillar-group">
-      <h2 class="pillar-heading">{{ p.en }}</h2>
-      <div class="blog-list">
-        {% for item in items %}
-        <article class="blog-card">
-          <a href="{{ item.url }}">
-            <span class="eyebrow">{{ item.data.category }}</span>
-            <h3>{{ item.data.title }}</h3>
-            <p>{{ item.data.description }}</p>
-            <p class="blog-card-meta">{{ item.data.date | readableDate }}</p>
-          </a>
-        </article>
-        {% endfor %}
-      </div>
-    </section>
-    {% endif %}
+  <button type="button" class="pillar-tab" data-pillar="{{ p.key }}">{{ p.en }}</button>
   {% endfor %}
+</div>
+
+<div class="blog-index-body">
+  <div class="blog-grid" id="blog-grid-en">
+    {% for item in collections.blogEn %}
+    <article class="blog-card" data-pillar="{{ item.data.pillar }}">
+      <a href="{{ item.url }}">
+        <span class="eyebrow">{{ item.data.category }}</span>
+        <h3>{{ item.data.title }}</h3>
+        <p>{{ item.data.description }}</p>
+        <p class="blog-card-meta">{{ item.data.date | readableDate }}</p>
+      </a>
+    </article>
+    {% endfor %}
+  </div>
+  <p class="blog-empty">Nothing published in this category yet.</p>
 </div>

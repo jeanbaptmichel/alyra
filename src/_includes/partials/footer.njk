@@ -11,13 +11,13 @@
           <h4>{% if lang == 'fr' %}Explorer{% else %}Explore{% endif %}</h4>
           <a href="/#how">{% if lang == 'fr' %}Comment ça marche{% else %}How it works{% endif %}</a>
           <a href="{% if lang == 'fr' %}/fr/blog/{% else %}/blog/{% endif %}">Blog</a>
-          <a href="/#audit">{% if lang == 'fr' %}Réserver une démo{% else %}Book a demo{% endif %}</a>
+          <a href="{% if lang == 'fr' %}/fr/contact/{% else %}/contact/{% endif %}">{% if lang == 'fr' %}Réserver une démo{% else %}Book a demo{% endif %}</a>
         </div>
         <div class="footer-col">
           <h4>{% if lang == 'fr' %}Légal{% else %}Legal{% endif %}</h4>
           <a href="#">Privacy</a>
           <a href="#">Terms</a>
-          <a href="#">Contact</a>
+          <a href="{% if lang == 'fr' %}/fr/contact/{% else %}/contact/{% endif %}">Contact</a>
         </div>
       </div>
     </div>
