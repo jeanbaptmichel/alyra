@@ -1,0 +1,46 @@
+/* Alyra design tokens — v1.0 (petrol accent)
+   Drop into your global stylesheet. Every value below is used somewhere
+   in the brand documentation; nothing here is decorative. */
+
+:root {
+  /* --- Ground --- */
+  --stone:            #EFEAE0; /* page background, everywhere */
+  --stone-deep:       #E6E0D4; /* recessed bands, disabled button fill */
+  --card:             #F7F4EE; /* cards, inputs, dropdown surfaces */
+
+  /* --- Ink --- */
+  --ink:              #1C1B16; /* headlines, secondary button, footer ground */
+  --ink-70:           #4A473D; /* body copy, inactive nav        7.2:1 on stone */
+  --ink-45:           #7A7568; /* labels, captions, metadata     4.6:1 on stone */
+
+  /* --- Accent (single) --- */
+  --petrol:           #14363C; /* primary accent                10.5:1 on stone */
+  --petrol-deep:      #0E262B; /* hover */
+  --petrol-press:     #0A1D21; /* active / pressed */
+  --petrol-light:     #6FA8AE; /* dark-ground accent only        6.6:1 on ink */
+  --petrol-wash:      #D5DEDD; /* badge + tag fill, row highlight */
+  --petrol-soft:      #3C6A70; /* charts / illustration only — never text */
+
+  /* --- Lines --- */
+  --hairline:         #D8D2C4; /* all 1px rules on paper */
+  --hairline-strong:  #C4BCA9; /* input + card borders, disabled outline */
+  --hairline-dark:    #34322A; /* rules on the ink footer */
+
+  /* --- Semantic --- */
+  --success:          #3E5A3A;
+  --error:            #A32B1C;
+
+  /* --- Footer / dark ground --- */
+  --footer-bg:        #1C1B16;
+  --footer-text:      #CFC9BB;
+  --footer-muted:     #A7A196;
+  --footer-label:     #7A7568;
+
+  /* --- Type --- */
+  --font-serif: "Newsreader", Georgia, serif;
+  --font-sans:  "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono:  "IBM Plex Mono", ui-monospace, monospace;
+
+  /* --- Radius --- */
+  --radius: 0px;   /* square. 2px is the absolute ceiling if engineering insists */
+}
